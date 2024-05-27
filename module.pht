@@ -2,4 +2,3 @@ os=debian
 giturl=https://github.com/the-abra/flask-backdoor
 exec=main.sh
 vpath=/etc/flask-backdoor
-asdadad=adasdd
