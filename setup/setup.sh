@@ -4,6 +4,5 @@ if [ $? -ne 0 ]; then
     cat /tmp/flaskbd-apt.error
     exit 1
 fi
-service nginx start
+
 cp /etc/flask-backdoor/setup/flaskbd /etc/nginx/sites-enabled/flaskbd
-service nginx restart
