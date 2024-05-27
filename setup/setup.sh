@@ -1,4 +1,4 @@
-sudo apt update && sudo apt install -y python3 python-is-python3 pip3 python-flask nginx 2> /tmp/flaskbd-apt.error
+apt update && apt install -y python3 python-is-python3 pip3 python-flask nginx 2> /tmp/flaskbd-apt.error
 if [ $? -ne 0 ]; then
     errorlog "Depends installation failed" >&2
     cat /tmp/flaskbd-apt.error
