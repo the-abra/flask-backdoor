@@ -1,6 +1,6 @@
 server {
     listen 80; # Listen on port 80
-    server_name www.backdoor.flask; # Replace with your domain or IP
+    server_name backdoorflask.com; # Replace with your domain or IP
 
     # Define locations and proxy settings
     location / {
