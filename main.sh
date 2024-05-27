@@ -7,4 +7,6 @@ if ! command -v nginx; then
 fi
 
 service nginx start
-python core/host.py
+cd core/
+python host.py
+cd ..
