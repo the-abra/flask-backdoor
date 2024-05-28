@@ -7,8 +7,12 @@ def create_causal_graph(nodes, edges):
     return G
 
 def check_backdoor_criterion(G, treatment, outcome):
-    # Implement the backdoor criterion check
-    # For simplicity, this is a placeholder for the actual implementation
-    # In practice, you would need to check if there's a backdoor path and if it's blocked by a set of nodes
-    return "Placeholder: Backdoor criterion check not implemented"
-
+    # Find all paths from treatment to outcome
+    all_paths = list(nx.all_simple_paths(G, source=treatment, target=outcome))
+    
+    # Check each path to see if it is a backdoor path
+    for path in all_paths:
+        if len(path) > 2 and path[1] != outcome:
+            return "No"  # There is a backdoor path
+    
+    return "Yes"  # No backdoor path found
