@@ -1,29 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Backdoor Algorithm Lab</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Github: @ItsAdi22</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+
 </head>
 <body>
-    <h1>Welcome to the Backdoor Algorithm Lab</h1>
-    <p>This lab helps you understand and apply the backdoor algorithm in causal inference.</p>
-    {% if current_user.is_authenticated %}
-        <a href="/example">View Example Data</a>
-        <a href="/explanations">Read Explanations</a>
-        <a href="/logout">Logout</a>
-        <form action="/calculate" method="POST">
-            <label for="x">Variable X:</label>
-            <input type="text" id="x" name="x"><br>
-            <label for="y">Variable Y:</label>
-            <input type="text" id="y" name="y"><br>
-            <label for="z">Variable Z:</label>
-            <input type="text" id="z" name="z"><br>
-            <input type="submit" value="Calculate">
+    <div class="container">
+        <h1>Happy Hacking</h1>
+        <form method="post" action="{{url_for('message')}}">
+            <input type="hidden" name="message"  value="msg %username%">
+            <label for="message">Send Message:</label>
+            <input type="text" class="form-control" name="messageContent" placeholder="May not work on 32-bit systems"> <br>
+            <button type="submit" class="custom-button">Send</button>
         </form>
-    {% else %}
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+    </div>
+    
+    <div class="container">
+        <form method="post">
+            <label for="command">Enter a command:</label> <br>
+            <div style="display: inline-flex;">
+                <input type="text" class="form-control" name="command" placeholder="Access Terminal" style="margin-right: 2%;">
+                <button type="submit" class="custom-button">Run</button>
+            </div> 
+
+        </form>
+        <br>
+        <form method="post">
+            <button type="submit" class="custom-button" name="command" value="rundll32.exe user32.dll,LockWorkStation">Lock Computer</button>
+            <button type="submit" class="custom-button" name="command" value="rundll32.exe powrprof.dll,SetSuspendState 0,1,0">Sleep Computer</button>
+        </form>
+
+    </div>
+    
+    {% if result %}
+    <div class="container">
+        <h2>Command: {{ command }}</h2>
+        <pre>{{ result }}</pre>
+    </div>
     {% endif %}
+
+    <div class="container">
+        <p>Credits: <a href="https://github.com/ItsAdi22" target="_blank">ItsAdi22</a></p>
+    </div>
+    
 </body>
 </html>
