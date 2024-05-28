@@ -2,25 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Causal Graph Backdoor Criterion</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Backdoor Algorithm Lab</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Enter Causal Graph Details</h1>
-    <form action="{{ url_for('graph') }}" method="post">
-        <label for="nodes">Nodes (comma-separated):</label>
-        <input type="text" id="nodes" name="nodes" value="A,B,C,D" required><br>
-        
-        <label for="edges">Edges (comma-separated, format: A->B):</label>
-        <input type="text" id="edges" name="edges" value="A->B,A->C,B->D,C->D" ><br>
-        
-        <label for="treatment">Treatment Variable:</label>
-        <input type="text" id="treatment" name="treatment" value="B" required><br>
-        
-        <label for="outcome">Outcome Variable:</label>
-        <input type="text" id="outcome" name="outcome" value="D" required><br>
-        
-        <input type="submit" value="Submit">
-    </form>
+    <h1>Welcome to the Backdoor Algorithm Lab</h1>
+    <p>This lab helps you understand and apply the backdoor algorithm in causal inference.</p>
+    {% if current_user.is_authenticated %}
+        <a href="/example">View Example Data</a>
+        <a href="/explanations">Read Explanations</a>
+        <a href="/logout">Logout</a>
+        <form action="/calculate" method="POST">
+            <label for="x">Variable X:</label>
+            <input type="text" id="x" name="x"><br>
+            <label for="y">Variable Y:</label>
+            <input type="text" id="y" name="y"><br>
+            <label for="z">Variable Z:</label>
+            <input type="text" id="z" name="z"><br>
+            <input type="submit" value="Calculate">
+        </form>
+    {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    {% endif %}
 </body>
 </html>
