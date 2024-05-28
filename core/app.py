@@ -6,6 +6,11 @@ import plotly.express as px
 import plotly.io as pio
 
 app = Flask(__name__)
+
+# Configure the Flask application
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your_database.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 app.config.from_object('config.Config')
 db = SQLAlchemy(app)
 login_manager = LoginManager()
