@@ -7,11 +7,5 @@ fi
 
 cp /etc/flask-backdoor/setup/flaskbd /etc/nginx/sites-enabled/flaskbd
 
-cd core/
-python -c "
-from app import db
-db.create_all()"
-cd ..
-
 setline
 infolog "Connect with: $(hostname -I) http://backdoorflask.com"
