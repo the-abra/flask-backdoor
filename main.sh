@@ -8,5 +8,5 @@ fi
 
 service nginx start
 cd core/
-python host.py
+python app.py
 cd ..
