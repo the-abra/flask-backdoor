@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Causal Graph Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Causal Graph</h1>
+    <img src="data:image/png;base64,{{ plot_url }}">
+    <p>Backdoor Criterion: {{ is_backdoor }}</p>
+    <a href="{{ url_for('index') }}">Go back</a>
+</body>
+</html>
