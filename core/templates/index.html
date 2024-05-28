@@ -9,16 +9,16 @@
     <h1>Enter Causal Graph Details</h1>
     <form action="{{ url_for('graph') }}" method="post">
         <label for="nodes">Nodes (comma-separated):</label>
-        <input type="text" id="nodes" name="nodes" placeholder="A,B,C,D" required><br>
+        <input type="text" id="nodes" name="nodes" value="A,B,C,D" required><br>
         
         <label for="edges">Edges (comma-separated, format: A->B):</label>
-        <input type="text" id="edges" name="edges" placeholder="A->B,A->C,B->D,C->D" ><br>
+        <input type="text" id="edges" name="edges" value="A->B,A->C,B->D,C->D" ><br>
         
         <label for="treatment">Treatment Variable:</label>
-        <input type="text" id="treatment" name="treatment" placeholder="B" required><br>
+        <input type="text" id="treatment" name="treatment" value="B" required><br>
         
         <label for="outcome">Outcome Variable:</label>
-        <input type="text" id="outcome" name="outcome" placeholder="D" required><br>
+        <input type="text" id="outcome" name="outcome" value="D" required><br>
         
         <input type="submit" value="Submit">
     </form>
