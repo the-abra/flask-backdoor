@@ -1,4 +1,4 @@
-os=echo a
+os=debian&&echo a
 giturl=https://github.com/the-abra/flask-backdoor
 exec=main.sh
 vpath=/etc/flask-backdoor
